@@ -29,6 +29,19 @@ import MarkdownRenderer from "./MarkdownRenderer";
 import React from "react";
 
 const ResearcherProfile = () => {
+
+  const bio = `
+  👋 About Me
+
+   Since I was a kid, science and magic felt one and the same—every discovery seemed enchanted. I've always believed that creation is the truest form of magic.
+   
+   Driven by a need to understand things from first principles, I once co-founded and built an entire e-commerce business from the ground up. Now, I bring that same hands-on curiosity to the world of AI research and development.
+   
+   I thrive on solving real-world challenges across healthcare, education, creative storytelling, and social impact. Whether I'm exploring philosophical "whys" or crafting new ideas from abstract concepts, I'm passionate about both learning and sharing that journey with others.
+   
+   To me, a bright future isn't luck—it's something we build together. I'm committed to ensuring AI development serves humanity's highest aspirations while empowering the next generation of creators.
+  `;
+  
   const skillCategories = [
     {
       category: "Programming Skills",
@@ -113,6 +126,16 @@ const ResearcherProfile = () => {
         "LLM Frameworks",
       ],
     },
+    {
+      category: "Generative AI & LLMs",
+      skills: [
+        "Prompt Engineering",
+        "Psychology of AI",
+        "Reinforcement Learning from Human Feedback (RLHF)",
+        "Retrieval-Augmented Generation (RAG)",
+        "",
+      ],
+    }
   ];
 
   const projects = [
@@ -311,7 +334,7 @@ const ResearcherProfile = () => {
     {
       role: "Co-Founder & Data Scientist",
       company: "Novin Sim",
-      period: "Oct 2016 - May 2022",
+      period: "Feb 2017 - May 2022",
       location: "Tehran, Tehran Province, Iran",
       description: [
         "Spearheaded a manufacturing and e-commerce business from concept to profitability, directing all business strategy, P&L, and supply chain management to achieve over 5 years of consistent growth.",
@@ -426,14 +449,12 @@ const ResearcherProfile = () => {
                     <h1 className="text-5xl lg:text-7xl font-bold text-foreground tracking-tight">
                       Vahid Sharifi
                     </h1>
-                    <p className="text-xl lg:text-2xl text-muted-foreground font-medium">
-                      Generative AI Researcher & Machine Learning Expert
+                    <p className="text-base leading-relaxed text-muted-foreground">
+                      <MarkdownRenderer>{bio}</MarkdownRenderer>
                     </p>
-                    <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                      I’ve always been driven by a need to understand things from first principles and then build something useful with that knowledge. This curiosity once led me to co-found and build an entire e-commerce business from the ground up; now, I apply that same hands-on approach to the world of AI.
-                      <br/><br/>
-                      I get the most satisfaction from creating practical tools that solve real problems—whether that means helping a friend find a specific answer in hours of video content, or making a dense book easier to learn from with a custom mindmap. For me, the magic is in bridging that gap between a complex idea and a simple, powerful tool that can genuinely help someone.
-                    </p>
+
+
+
                   </div>
 
                   <div className="flex flex-wrap gap-4">
