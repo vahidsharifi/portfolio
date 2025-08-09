@@ -22,6 +22,7 @@ import {
   Briefcase,
   Lightbulb,
   Code,
+  BookText, // I've added this icon for publications
 } from "lucide-react";
 import profileImage from "@/assets/profile-image.jpg";
 import cvFile from "@/assets/cv.pdf";
@@ -29,7 +30,6 @@ import MarkdownRenderer from "./MarkdownRenderer";
 import React from "react";
 
 const ResearcherProfile = () => {
-
   const bio = `
   👋 About Me
 
@@ -41,7 +41,7 @@ const ResearcherProfile = () => {
    
    To me, a bright future isn't luck—it's something we build together. I'm committed to ensuring AI development serves humanity's highest aspirations while empowering the next generation of creators.
   `;
-  
+
   const skillCategories = [
     {
       category: "Programming Skills",
@@ -135,7 +135,7 @@ const ResearcherProfile = () => {
         "Retrieval-Augmented Generation (RAG)",
         "",
       ],
-    }
+    },
   ];
 
   const projects = [
@@ -202,6 +202,19 @@ const ResearcherProfile = () => {
       link: "#",
       github: "#",
     },
+  ];
+
+  // --- NEW --- I've added this data structure for your publications
+  const publications = [
+    {
+      title:
+        "Investigating GPT Models for Nutritional Accuracy: A Systematic Review and Performance Enhancement",
+      venue: "Preprint on ResearchGate",
+      date: "May 2024",
+      doi: "10.13140/RG.2.2.16297.51041",
+      link: "https://www.researchgate.net/publication/392526183_Investigating_GPT_Models_for_Nutritional_Accuracy_A_Systematic_Review_and_Performance_Enhancement",
+    },
+    // You can add more publications here in the future
   ];
 
   const education = [
@@ -356,11 +369,13 @@ const ResearcherProfile = () => {
     // Note: The "Generative AI Specialist" role from Jun 2023 - Feb 2024 can be merged into the consolidated "AI Model Specialist" role or your other research roles if the work was similar. This avoids having too many short-term entries.
   ];
 
+  // --- NEW --- I've updated the navigation items
   const navItems = [
     { id: "about", label: "About", icon: User },
     { id: "skills", label: "Skills", icon: Code },
     { id: "experience", label: "Experience", icon: Briefcase },
     { id: "projects", label: "Projects", icon: Lightbulb },
+    { id: "publications", label: "Publications", icon: BookText },
     { id: "academics", label: "Academics", icon: GraduationCap },
   ];
 
@@ -452,9 +467,6 @@ const ResearcherProfile = () => {
                     <p className="text-base leading-relaxed text-muted-foreground">
                       <MarkdownRenderer>{bio}</MarkdownRenderer>
                     </p>
-
-
-
                   </div>
 
                   <div className="flex flex-wrap gap-4">
@@ -672,6 +684,76 @@ const ResearcherProfile = () => {
                           >
                             View on GitHub
                             <Github className="w-4 h-4" />
+                          </a>
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </section>
+
+            {/* --- NEW --- This is the entire publications section */}
+            <section id="publications" className="py-16 animate-fade-in">
+              <h2 className="text-3xl font-bold text-center mb-12">
+                Publications
+              </h2>
+              <div className="space-y-8 max-w-4xl mx-auto">
+                {publications.map((pub, index) => (
+                  <Card
+                    key={index}
+                    className="bg-gradient-card border-border/50 hover:border-primary/30 transition-colors duration-300"
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                        <div className="pr-4">
+                          <h3 className="text-xl font-semibold text-foreground leading-snug">
+                            <a
+                              href={pub.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:underline hover:text-primary transition-colors"
+                            >
+                              {pub.title}
+                            </a>
+                          </h3>
+                          <p className="text-muted-foreground font-medium mt-1">
+                            {pub.venue}
+                          </p>
+                        </div>
+                        <Badge
+                          variant="secondary"
+                          className="self-start mt-2 md:mt-0 whitespace-nowrap"
+                        >
+                          {pub.date}
+                        </Badge>
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-4">
+                        <p className="text-sm text-muted-foreground">
+                          DOI:{" "}
+                          <a
+                            href={`https://doi.org/${pub.doi}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:underline text-primary/80"
+                          >
+                            {pub.doi}
+                          </a>
+                        </p>
+                        <Button
+                          asChild
+                          variant="ghost"
+                          size="sm"
+                          className="hover:bg-accent/20 w-full sm:w-auto"
+                        >
+                          <a
+                            href={pub.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-2"
+                          >
+                            View Publication
+                            <ExternalLink className="w-4 h-4" />
                           </a>
                         </Button>
                       </div>
