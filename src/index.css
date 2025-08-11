@@ -24,7 +24,7 @@ All colors MUST be HSL.
     --primary-foreground: 210 20% 98%;
 
     /* Secondary */
-    --secondary: 18 85% 52%;           /* warm orange for contrast */
+    --secondary: 40 100% 78%;           /* warm orange for contrast */
     --secondary-foreground: 220 20% 10%;
 
     /* Muted / helper text — nudged darker for readability on white */

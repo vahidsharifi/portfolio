@@ -33,109 +33,75 @@ const ResearcherProfile = () => {
   const bio = `
   👋 About Me
 
-   Since I was a kid, science and magic felt one and the same—every discovery seemed enchanted. I've always believed that creation is the truest form of magic.
+  I am an AI researcher and data scientist specialising in large language models, multimodal AI, and applied NLP.
+  
+  My work spans from designing state-of-the-art RAG systems to fine-tuning models via RLHF for improved reasoning, safety, and factuality.
+  
+  I have delivered AI systems for research labs, startups, and academic projects that reduced manual workloads by up to 90% and achieved >95% accuracy in complex real-world settings.
+  
+  Since I was a kid, science and magic felt one and the same—every discovery seemed enchanted. I've always believed that creation is the truest form of magic.
    
-   Driven by a need to understand things from first principles, I once co-founded and built an entire e-commerce business from the ground up. Now, I bring that same hands-on curiosity to the world of AI research and development.
-   
-   I thrive on solving real-world challenges across healthcare, education, creative storytelling, and social impact. Whether I'm exploring philosophical "whys" or crafting new ideas from abstract concepts, I'm passionate about both learning and sharing that journey with others.
-   
-   To me, a bright future isn't luck—it's something we build together. I'm committed to ensuring AI development serves humanity's highest aspirations while empowering the next generation of creators.
+  Driven by a need to understand things from first principles, I once co-founded and built an entire e-commerce business from the ground up. Now, I bring that same hands-on curiosity to the world of AI research and development.
+  
+  I thrive on solving real-world challenges across healthcare, education, creative storytelling, and social impact. Whether I'm exploring philosophical "whys" or crafting new ideas from abstract concepts, I'm passionate about both learning and sharing that journey with others.
+  
+  To me, a bright future isn't luck—it's something we build together. I'm committed to ensuring AI development serves humanity's highest aspirations while empowering the next generation of creators.
   `;
 
   const skillCategories = [
     {
-      category: "Programming Skills",
-      skills: ["Python", "R", "SQL"],
-    },
-    {
-      category: "Databases",
-      skills: ["MySQL", "PostgreSQL", "Firebase"],
-    },
-    {
-      category: "Cloud Platforms",
-      skills: ["Google Cloud Platform (GCP)", "AWS"],
-    },
-    {
-      category: "Research Methodologies",
+      category: "Generative AI & LLMs",
       skills: [
-        "Quantitative Research Methods",
-        "Qualitative Research Methods",
-        "Mixed Methods Research",
-        "Survey Design",
-        "Experimental Design",
-        "A/B Testing",
+        "Prompt Engineering & Optimisation",
+        "Retrieval-Augmented Generation (RAG)",
+        "Reinforcement Learning from Human Feedback (RLHF)",
+        "Transformer Architectures (BERT, GPT, LLaMA)",
+        "LLM Frameworks (LangChain, HuggingFace Transformers)",
+        "Core NLP Applications (Sentiment, Classification, Topic Modelling, NER)", // ✨ RE-ADDED
+        "Multimodal & Generative Models (Text, Image, Audio)", // ✨ RE-ADDED
+        "Psychology of AI",
+        "Benchmark development (HLE, HMMT, GPQA, AIME)",
+      ],
+    },
+    {
+      category: "Machine Learning & AI",
+      skills: [
+        "Supervised & Unsupervised Learning",
+        "Deep Learning",
+        "Model Evaluation & Benchmarking",
+        "Feature Engineering",
+        "Causal Inference & Hypothesis Testing",
       ],
     },
     {
       category: "Data Science & Analytics",
       skills: [
-        "Text Mining",
-        "Topic Modeling",
-        "Sentiment Analysis",
-        "Network Analysis",
-        "spatiotemporal analysis",
+        "A/B Testing & Experimentation",
+        "Time-Series & Spatiotemporal Analysis",
+        "Data Visualisation (Plotly, Matplotlib, PowerBI, ggplot2)",
+        "Foundational Maths (Statistics, Probability, Linear Algebra)",
       ],
     },
-    {
-      category: "AI & Machine Learning",
+      {
+      category: "Programming & Web Frameworks",
       skills: [
-        "Machine Learning",
-        "Deep Learning",
-        "Natural Language Processing (NLP)",
-        "Image and Audio Processing",
-        "Hypothesis Testing",
-        "Experimental Design",
-        "Causal Inference",
+        "Python (Pandas, NumPy, Scikit-learn, PyTorch, TensorFlow/Keras)",
+        "R",
+        "SQL (MySQL, PostgreSQL)",
+        "Web Frameworks (FastAPI, Flask, Streamlit)",
       ],
     },
     {
-      category: "Mathematics & Statistics",
+      category: "MLOps & Deployment",
       skills: [
-        "Linear Algebra",
-        "Derivation and Integration",
-        "Statistics and Probability",
-        "Statistical Testing",
-        "Hypothesis Evaluation",
+        "Experiment Tracking & Versioning (Git, Weights & Biases)",
+        "Containerisation (Docker)",
+        "Cloud Platforms (AWS, GCP)",
+        "CI/CD & Pipeline Automation",
+        "Vector & NoSQL Databases (Pinecone, ChromaDB, Firebase)",
+        "Inference Optimisation & Quantisation",
       ],
-    },
-    {
-      category: "Programming Libraries & Tools",
-      skills: [
-        "Pandas",
-        "Matplotlib",
-        "Scikit-Learn",
-        "NumPy",
-        "SciPy",
-        "TensorFlow",
-        "Keras",
-        "PyTorch",
-        "BeautifulSoup",
-      ],
-    },
-    {
-      category: "Python Frameworks",
-      skills: ["LangChain", "HuggingFace", "Flask", "FastAPI"],
-    },
-    {
-      category: "MLOps & Tools",
-      skills: [
-        "Weights & Biases (WanDB)",
-        "Git",
-        "Docker",
-        "Transformer Architectures",
-        "LLM Frameworks",
-      ],
-    },
-    {
-      category: "Generative AI & LLMs",
-      skills: [
-        "Prompt Engineering",
-        "Psychology of AI",
-        "Reinforcement Learning from Human Feedback (RLHF)",
-        "Retrieval-Augmented Generation (RAG)",
-        "",
-      ],
-    },
+    }
   ];
 
   const projects = [
@@ -187,7 +153,7 @@ const ResearcherProfile = () => {
       github: "#",
     },
     {
-      title: "Award-Winning Spatiotemporal Analysis of UK Crime",
+      title: "Spatiotemporal Analysis of UK Crime",
       description:
         "An end-to-end data science project that won the highest grade in three years for its creative analysis of UK crime data. This project transformed a messy, undefined dataset into actionable insights relevant to UK public safety.\n\n**Motivation & Context:** This project was part of a university competition with a uniquely open-ended brief: to creatively extract as many valuable insights as possible from a complex, real-world dataset. Driven by the project's direct contribution to UK safety, I was motivated to employ innovative techniques to deliver a comprehensive and systematic analysis.\n\n**Methodology & Innovation:**\n1. **Proactive Data Sourcing:** Recognising the limitations of the provided data, I conducted independent, domain-specific research and integrated supplementary datasets I collected from the gov.uk website. Synthesising these two sources was the key that unlocked unprecedented insights.\n2. **Robust Data Pipeline:** The initial data was extremely messy. I built a robust cleansing pipeline in R to automate the merging and standardisation of dozens of inconsistent CSVs, ensuring complete data integrity for the analysis.\n3. **Advanced Visualisation:** The synthesised data enabled powerful visualisations, including animated monthly trends with `gganimate` and geospatial heatmaps, which clearly communicated the complex spatiotemporal patterns.",
       technologies: [
@@ -311,7 +277,7 @@ const ResearcherProfile = () => {
       description: [
         "Served as a subject matter expert for improving the reasoning and safety of premier large language models, including OpenAI's gpt-5 family, o3/o4 series, and Google's Gemini family.",
         "Specialized in Reinforcement Learning from Human Feedback (RLHF), authoring thousands of expert-level prompts and preference-based responses to fine-tune model behavior in coding, mathematics, and logic.",
-        "Generated gold-standard problems and creative solutions for critical industry benchmarks (GPQA, HMMT, AIME), rigorously testing the mathematical frontiers of cutting-edge AI.",
+        "Generated gold-standard problems and creative solutions for critical industry benchmarks (HLE, GPQA, HMMT, AIME), rigorously testing the mathematical frontiers of cutting-edge AI.",
         "Reviewed and supervised code annotations and programming challenges, ensuring the quality and correctness of training data for advanced code-generation models.",
       ],
       skills: [
@@ -644,9 +610,26 @@ const ResearcherProfile = () => {
                     >
                       <CardContent className="p-6 space-y-4">
                         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
-                          <h3 className="text-xl font-semibold text-foreground">
-                            {project.title}
-                          </h3>
+                          <div className="flex items-center gap-3">
+                            <h3 className="text-xl font-semibold text-foreground">
+                              {project.title}
+                            </h3>
+
+                            {/* Render an eye-catching "Open-Source" badge (GitHub green) for the two specified projects when a GitHub link exists */}
+                            {(project.title === "MapMyBook AI – From title to visual summary" ||
+                              project.title === "AI Q&A Engine for YouTube Channels") &&
+                              project.github &&
+                              project.github !== "#" && (
+                                <Badge
+                                  variant="open"
+                                  className="text-xs flex items-center gap-1"
+                                >
+                                  <Github className="w-3 h-3" />
+                                  Open-Source
+                                </Badge>
+                              )}
+                          </div>
+
                           <div className="flex flex-wrap gap-2">
                             {project.technologies.map((tech, techIndex) => (
                               <Badge
@@ -700,22 +683,24 @@ const ResearcherProfile = () => {
                               </a>
                             </Button>
     
-                            <Button
-                              asChild
-                              variant="ghost"
-                              size="sm"
-                              className="w-full sm:w-auto"
-                            >
-                              <a
-                                href={project.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-2"
+                            {project.github && project.github !== "#" && (
+                              <Button
+                                asChild
+                                variant="ghost"
+                                size="sm"
+                                className="w-full sm:w-auto"
                               >
-                                View on GitHub
-                                <Github className="w-4 h-4" />
-                              </a>
-                            </Button>
+                                <a
+                                  href={project.github}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-2"
+                                >
+                                  View on GitHub
+                                  <Github className="w-4 h-4" />
+                                </a>
+                              </Button>
+                            )}
                           </div>
                         </div>
                       </CardContent>
@@ -796,6 +781,38 @@ const ResearcherProfile = () => {
             </section>
 
             <section id="academics" className="py-16 animate-fade-in">
+                            <div className="py-16">
+                <h2 className="text-3xl font-bold text-center mb-12">
+                  Honors & Awards
+                </h2>
+                <div className="space-y-8 max-w-4xl mx-auto">
+                  {honorsAndAwards.map((award, index) => (
+                    <Card
+                      key={index}
+                      className="bg-gradient-card border-border/50 transition-shadow duration-300 hover:shadow-card"
+                    >
+                      <CardContent className="p-6">
+                        <div className="flex flex-col md:flex-row md:justify-between md:items-start">
+                          <div>
+                            <h3 className="text-xl font-semibold text-foreground">
+                              {award.title}
+                            </h3>
+                            <p className="text-muted-foreground">
+                              {award.description}
+                            </p>
+                          </div>
+                          <Badge
+                            variant="secondary"
+                            className="self-start mt-2 md:mt-0"
+                          >
+                            {award.year}
+                          </Badge>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
               <h2 className="text-3xl font-bold text-center mb-12">
                 Academic Background
               </h2>
@@ -835,38 +852,7 @@ const ResearcherProfile = () => {
                   </Card>
                 ))}
               </div>
-              <div className="py-16">
-                <h2 className="text-3xl font-bold text-center mb-12">
-                  Honors & Awards
-                </h2>
-                <div className="space-y-8 max-w-4xl mx-auto">
-                  {honorsAndAwards.map((award, index) => (
-                    <Card
-                      key={index}
-                      className="bg-gradient-card border-border/50 transition-shadow duration-300 hover:shadow-card"
-                    >
-                      <CardContent className="p-6">
-                        <div className="flex flex-col md:flex-row md:justify-between md:items-start">
-                          <div>
-                            <h3 className="text-xl font-semibold text-foreground">
-                              {award.title}
-                            </h3>
-                            <p className="text-muted-foreground">
-                              {award.description}
-                            </p>
-                          </div>
-                          <Badge
-                            variant="secondary"
-                            className="self-start mt-2 md:mt-0"
-                          >
-                            {award.year}
-                          </Badge>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
+
             </section>
           </div>
         </main>

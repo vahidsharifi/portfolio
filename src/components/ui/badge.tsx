@@ -15,6 +15,8 @@ const badgeVariants = cva(
         destructive:
           "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
         outline: "text-foreground",
+        // Open-source badge: uses the requested GitHub-green (#16A34A) with subtle hover state
+        open: "border-transparent bg-[#16A34A] text-white shadow-sm hover:bg-[#13893a]",
       },
     },
     defaultVariants: {
