@@ -8,54 +8,63 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 26% 10%;
-    --foreground: 210 40% 98%;
+    /* Refined light / white-based design tokens (improved contrast & accessibility) */
+    --background: 210 20% 98%;         /* very light, slightly cool */
+    --foreground: 222 12% 12%;         /* dark charcoal for primary text */
 
-    --card: 224 31% 14%;
-    --card-foreground: 210 40% 98%;
+    /* Card & surface */
+    --card: 210 14% 100%;              /* pure/off-white card surfaces */
+    --card-foreground: 222 12% 12%;
 
-    --popover: 224 31% 14%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 14% 100%;
+    --popover-foreground: 222 12% 12%;
 
-    --primary: 263 85% 65%;
-    --primary-foreground: 220 26% 10%;
+    /* Primary / action color (tuned deeper for higher contrast on white) */
+    --primary: 215 85% 48%;            /* slightly deeper vivid blue — main accent */
+    --primary-foreground: 210 20% 98%;
 
-    --secondary: 32 95% 55%;
-    --secondary-foreground: 220 26% 10%;
+    /* Secondary */
+    --secondary: 18 85% 52%;           /* warm orange for contrast */
+    --secondary-foreground: 220 20% 10%;
 
-    --muted: 240 21% 20%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Muted / helper text — nudged darker for readability on white */
+    --muted: 220 10% 86%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 217 91% 60%;
-    --accent-foreground: 220 26% 10%;
+    /* Accent for subtle highlights */
+    --accent: 190 80% 48%;
+    --accent-foreground: 210 20% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 52%;          /* accessible red for destructive actions */
+    --destructive-foreground: 210 20% 98%;
 
-    --border: 240 21% 20%;
-    --input: 240 21% 20%;
-    --ring: 263 85% 65%;
+    /* Borders, inputs and focus ring */
+    --border: 220 12% 94%;             /* slightly lighter border for subtle separation */
+    --input: 220 14% 96%;
+    --ring: 215 85% 48%;
 
-    /* Custom design tokens */
+    /* Custom design tokens — refined gradients & shadows for an elegant, subtle look */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    --gradient-card: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(240 21% 20%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(240 21% 16%) 50%, hsl(263 85% 12%) 100%);
-    --shadow-elegant: 0 20px 40px -12px hsl(var(--primary) / 0.3);
-    --shadow-card: 0 8px 32px -8px hsl(220 26% 4% / 0.4);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --gradient-card: linear-gradient(180deg, hsl(210 20% 100%) 0%, hsl(220 12% 98%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(215 90% 96%) 60%, hsl(var(--primary)) 100%);
+    --shadow-elegant: 0 14px 28px -8px hsl(var(--primary) / 0.14);
+    --shadow-card: 0 8px 18px -8px hsl(220 12% 6% / 0.08);
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.75rem;
 
-    --sidebar-background: 220 26% 8%;
-    --sidebar-foreground: 210 40% 98%;
+    /* Sidebar tuned for light background */
+    --sidebar-background: 210 20% 100%;
+    --sidebar-foreground: 222 12% 12%;
     --sidebar-primary: hsl(var(--primary));
     --sidebar-primary-foreground: hsl(var(--primary-foreground));
-    --sidebar-accent: 224 31% 14%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 240 21% 20%;
+    --sidebar-accent: 200 12% 96%;
+    --sidebar-accent-foreground: 222 12% 12%;
+    --sidebar-border: 220 14% 92%;
     --sidebar-ring: hsl(var(--ring));
   }
 
+  /* Preserve a sensible dark-mode palette when `.dark` is present */
   .dark {
     --background: 220 26% 10%;
     --foreground: 210 40% 98%;
@@ -101,7 +110,60 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  /* Global typography & spacing improvements for a lighter, more readable feel */
+  html, body {
+    height: 100%;
+  }
+
   body {
     @apply bg-background text-foreground font-sans;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
+  /* Headings: slightly tighter but prominent */
+  h1 {
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    letter-spacing: -0.01em;
+  }
+
+  /* Body text & list items: use muted-foreground for secondary text, with increased leading */
+  p,
+  li {
+    color: hsl(var(--muted-foreground));
+    line-height: 1.75;
+  }
+
+  /* Slightly increase container horizontal padding for more white space */
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+/* Fix: remove right white strip and ensure the hero gradient covers the full viewport
+   - Prevent horizontal overflow that can create a thin white gutter on the right.
+   - Preserve the original scrolling behaviour of the hero gradient so it changes with scroll.
+*/
+html,
+body,
+#root {
+  overflow-x: hidden;
+}
+
+/* Ensure the hero gradient covers full width/height and scrolls with the page (not fixed) */
+.bg-gradient-hero {
+  background-image: var(--gradient-hero);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: scroll;
+  min-height: 100svh;
+  min-height: 100vh;
+  width: 100%;
+  display: block;
+  background-clip: border-box;
 }

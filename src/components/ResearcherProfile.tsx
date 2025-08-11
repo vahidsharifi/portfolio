@@ -140,9 +140,9 @@ const ResearcherProfile = () => {
 
   const projects = [
     {
-      title: "AI-Powered Mindmap Generator",
+      title: "MapMyBook AI – From title to visual summary",
       description:
-        "This tool transforms any book into a personalized, interactive mindmap summary based on the user's specific learning goals. \n\n**Motivation:** As an avid reader and visual learner, I struggled to efficiently absorb dense books for exams using traditional summaries. I needed a way to see the hierarchical structure of information to improve retention and accelerate my learning. I built this app to solve that problem.\n\n**Challenge & Solution:** Since the app works using only a book's title—no PDF or text input—the primary challenge was generating an accurate and coherent summary purely from the LLM's latent knowledge. I engineered an iterative, multi-step generation process to solve this: the AI first outlines the book, then elaborates on each point. A second challenge was ensuring consistent Markmap syntax. I solved this with a multi-shot prompt strategy and a validation layer that retries failed requests, achieving a >95% success rate.\n\n**Key Features:** The app generates editable, multi-layered mindmaps, providing a dynamic way to explore ideas. It supports multiple LLM providers (OpenAI, Gemini, DeepSeek) for user flexibility.",
+        "This tool transforms any book into a personalized, interactive mindmap summary based on the user's specific learning goals. \n\n**Motivation:** As an avid reader and visual learner, I struggled to efficiently absorb dense books for exams using traditional summaries. I needed a way to see the hierarchical structure of information to improve retention and accelerate my learning. I built this app to solve that problem.\n\n**Challenge & Solution:** Since the app works using only a book's title (no PDF or text input) the primary challenge was generating an accurate and coherent summary purely from the LLM's latent knowledge. I engineered an iterative, multi-step generation process to solve this: the AI first outlines the book, then elaborates on each point. A second challenge was ensuring consistent Markmap syntax. I solved this with a multi-shot prompt strategy and a validation layer that retries failed requests, achieving a >95% success rate.\n\n**Key Features:** The app generates editable, multi-layered mindmaps, providing a dynamic way to explore ideas. It supports multiple LLM providers (OpenAI, Gemini, DeepSeek) for user flexibility.",
       technologies: [
         "Node.js",
         "Express.js",
@@ -151,8 +151,8 @@ const ResearcherProfile = () => {
         "Markmap",
         "GitLab CI",
       ],
-      link: "#",
-      github: "#",
+      link: "https://mindmap-456916.uc.r.appspot.com/",
+      github: "https://github.com/vahidsharifi/mindmap",
     },
     {
       title: "AI Q&A Engine for YouTube Channels",
@@ -167,8 +167,8 @@ const ResearcherProfile = () => {
         "ChromaDB",
         "Docker",
       ],
-      link: "https://github.com/vahidsharifi/LangChain-Product-Builder",
-      github: "https://github.com/vahidsharifi/LangChain-Product-Builder",
+      link: "https://v1-3-444108069341.us-central1.run.app/",
+      github: "https://github.com/vahidsharifi/tube-llm",
     },
     {
       title: "Full-Stack E-commerce & Analytics Platform",
@@ -199,8 +199,8 @@ const ResearcherProfile = () => {
         "SVM",
         "ggmap",
       ],
-      link: "#",
-      github: "#",
+      link: "https://github.com/vahidsharifi/crown-prosecution-service-data-analysis",
+      github: "https://github.com/vahidsharifi/crown-prosecution-service-data-analysis",
     },
   ];
 
@@ -309,7 +309,7 @@ const ResearcherProfile = () => {
       period: "Nov 2023 - Present",
       location: "United States - Remote",
       description: [
-        "Served as a subject matter expert for improving the reasoning and safety of premier large language models, including OpenAI's o3/o4 series and Google's Gemini family.",
+        "Served as a subject matter expert for improving the reasoning and safety of premier large language models, including OpenAI's gpt-5 family, o3/o4 series, and Google's Gemini family.",
         "Specialized in Reinforcement Learning from Human Feedback (RLHF), authoring thousands of expert-level prompts and preference-based responses to fine-tune model behavior in coding, mathematics, and logic.",
         "Generated gold-standard problems and creative solutions for critical industry benchmarks (GPQA, HMMT, AIME), rigorously testing the mathematical frontiers of cutting-edge AI.",
         "Reviewed and supervised code annotations and programming challenges, ensuring the quality and correctness of training data for advanced code-generation models.",
@@ -380,7 +380,11 @@ const ResearcherProfile = () => {
   ];
 
   const [activeSection, setActiveSection] = React.useState("about");
-
+  // Track which project cards are expanded; default: collapsed
+  const [expandedProjects, setExpandedProjects] = React.useState<Record<number, boolean>>({});
+  const toggleProject = (i: number) =>
+    setExpandedProjects((prev) => ({ ...prev, [i]: !prev[i] }));
+  
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -392,14 +396,14 @@ const ResearcherProfile = () => {
       },
       { rootMargin: "-50% 0px -50% 0px" }
     );
-
+  
     navItems.forEach((item) => {
       const element = document.getElementById(item.id);
       if (element) {
         observer.observe(element);
       }
     });
-
+  
     return () => {
       navItems.forEach((item) => {
         const element = document.getElementById(item.id);
@@ -527,11 +531,11 @@ const ResearcherProfile = () => {
                     <div className="w-80 h-80 rounded-2xl overflow-hidden shadow-elegant bg-gradient-card p-1">
                       <img
                         src={profileImage}
-                        alt="Dr. Alex Chen - AI Researcher"
+                        alt="Vahid Sharifi"
                         className="w-full h-full object-cover rounded-xl"
                       />
                     </div>
-                    <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-primary rounded-full blur-3xl opacity-60"></div>
+                    <div className="absolute -bottom-3 -right-3 w-20 h-20 bg-gradient-primary rounded-full blur-2xl opacity-40 mix-blend-screen"></div>
                   </div>
                 </div>
               </div>
@@ -571,7 +575,7 @@ const ResearcherProfile = () => {
                 {experiences.map((exp, index) => (
                   <Card
                     key={index}
-                    className="bg-gradient-card border-border/50 hover:border-primary/30 transition-colors duration-300"
+                    className="bg-gradient-card border-border/50 transition-shadow duration-300 hover:shadow-card"
                   >
                     <CardContent className="p-6">
                       <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -629,67 +633,95 @@ const ResearcherProfile = () => {
               <h2 className="text-3xl font-bold text-center mb-12">
                 Featured Research Projects
               </h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-                {projects.map((project, index) => (
-                  <Card
-                    key={index}
-                    className="bg-gradient-card border-border/50 hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
-                  >
-                    <CardContent className="p-6 space-y-4">
-                      <h3 className="text-xl font-semibold text-foreground">
-                        {project.title}
-                      </h3>
-                      <MarkdownRenderer>
-                        {project.description}
-                      </MarkdownRenderer>
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech, techIndex) => (
-                          <Badge
-                            key={techIndex}
-                            variant="secondary"
-                            className="text-xs"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                      <div className="flex gap-2 mt-4">
-                        <Button
-                          asChild
-                          variant="ghost"
-                          size="sm"
-                          className="w-full hover:bg-accent/20"
+              {/* Stacked vertical layout for improved readability */}
+              <div className="space-y-6 max-w-4xl mx-auto">
+                {projects.map((project, index) => {
+                  const isExpanded = !!expandedProjects[index];
+                  return (
+                    <Card
+                      key={index}
+                      className="bg-gradient-card border-border/50 transition-all duration-300 hover:shadow-card"
+                    >
+                      <CardContent className="p-6 space-y-4">
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+                          <h3 className="text-xl font-semibold text-foreground">
+                            {project.title}
+                          </h3>
+                          <div className="flex flex-wrap gap-2">
+                            {project.technologies.map((tech, techIndex) => (
+                              <Badge
+                                key={techIndex}
+                                variant="secondary"
+                                className="text-xs"
+                              >
+                                {tech}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+    
+                        <div
+                          className={`text-muted-foreground leading-relaxed transition-all ${
+                            isExpanded ? "" : "max-h-36 overflow-hidden relative"
+                          }`}
                         >
-                          <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex w-full items-center justify-between"
-                          >
-                            View Project
-                            <ExternalLink className="w-4 h-4" />
-                          </a>
-                        </Button>
-                        <Button
-                          asChild
-                          variant="ghost"
-                          size="sm"
-                          className="w-full hover:bg-accent/20"
-                        >
-                          <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex w-full items-center justify-between"
-                          >
-                            View on GitHub
-                            <Github className="w-4 h-4" />
-                          </a>
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
+                          <MarkdownRenderer>{project.description}</MarkdownRenderer>
+    
+                          {!isExpanded && (
+                            <div className="absolute left-0 right-0 bottom-0 h-14 pointer-events-none bg-gradient-to-t from-white/90 to-transparent dark:from-black/80"></div>
+                          )}
+                        </div>
+    
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-3 mt-2">
+                          <div className="flex gap-2 flex-1">
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="w-full sm:w-auto"
+                              onClick={() => toggleProject(index)}
+                            >
+                              {isExpanded ? "Show less" : "Read more"}
+                            </Button>
+    
+                            <Button
+                              asChild
+                              variant="ghost"
+                              size="sm"
+                              className="w-full sm:w-auto"
+                            >
+                              <a
+                                href={project.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2"
+                              >
+                                View Project
+                                <ExternalLink className="w-4 h-4" />
+                              </a>
+                            </Button>
+    
+                            <Button
+                              asChild
+                              variant="ghost"
+                              size="sm"
+                              className="w-full sm:w-auto"
+                            >
+                              <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2"
+                              >
+                                View on GitHub
+                                <Github className="w-4 h-4" />
+                              </a>
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
               </div>
             </section>
 
@@ -702,7 +734,7 @@ const ResearcherProfile = () => {
                 {publications.map((pub, index) => (
                   <Card
                     key={index}
-                    className="bg-gradient-card border-border/50 hover:border-primary/30 transition-colors duration-300"
+                    className="bg-gradient-card border-border/50 transition-shadow duration-300 hover:shadow-card"
                   >
                     <CardContent className="p-6">
                       <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
@@ -771,7 +803,7 @@ const ResearcherProfile = () => {
                 {education.map((edu, index) => (
                   <Card
                     key={index}
-                    className="bg-gradient-card border-border/50 hover:border-primary/30 transition-colors duration-300"
+                    className="bg-gradient-card border-border/50 transition-shadow duration-300 hover:shadow-card"
                   >
                     <CardContent className="p-6">
                       <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
@@ -811,7 +843,7 @@ const ResearcherProfile = () => {
                   {honorsAndAwards.map((award, index) => (
                     <Card
                       key={index}
-                      className="bg-gradient-card border-border/50 hover:border-primary/30 transition-colors duration-300"
+                      className="bg-gradient-card border-border/50 transition-shadow duration-300 hover:shadow-card"
                     >
                       <CardContent className="p-6">
                         <div className="flex flex-col md:flex-row md:justify-between md:items-start">
