@@ -26,10 +26,18 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
+ 
+      - name: Set VITE_BASE for GitHub Pages
+        # This ensures Vite builds with the correct base path for the repo site.
+        run: echo "VITE_BASE=/portfolio/" >> $GITHUB_ENV
+ 
       - name: Build project
         run: npm run build
-
+ 
+      - name: List dist (debug)
+        # Helpful when troubleshooting CI deployments — won't fail the job if dist is missing.
+        run: ls -la dist || true
+ 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

@@ -6,8 +6,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // CORRECT THIS LINE
-  base: "/portfolio/", 
+  // Use VITE_BASE env var (set in CI or locally). Default to "/portfolio/" for this repo.
+  // If you host on username.github.io or a custom domain set VITE_BASE="/" in CI or locally.
+  base: process.env.VITE_BASE ?? "/portfolio/",
   server: {
     host: "::",
     port: 8080,
