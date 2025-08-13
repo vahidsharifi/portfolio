@@ -38,14 +38,27 @@ jobs:
         # Helpful when troubleshooting CI deployments — won't fail the job if dist is missing.
         run: ls -la dist || true
  
+      - name: Copy index.html to 404.html for SPA deep-linking
+        # Ensures GitHub Pages serves the app entry for unknown paths without a hard 404.
+        run: |
+          if [ -f dist/index.html ]; then
+            cp dist/index.html dist/404.html
+            echo "Copied dist/index.html -> dist/404.html"
+          else
+            echo "dist/index.html not found; skipping copy"
+          fi
+ 
+      - name: List dist after adding 404 (debug)
+        run: ls -la dist || true
+ 
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
+ 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
-
+ 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
