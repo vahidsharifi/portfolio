@@ -37,13 +37,13 @@ const ResearcherProfile = () => {
 
   From cutting-edge RAG pipelines to RLHF-tuned models that reason, fact-check, and create safely, I build AI that actually works in the messy, unpredictable real world.
 
-  I’ve delivered solutions for research labs, startups, and academic teams—slashing manual workloads by up to 90% and hitting over 95% accuracy on problems most people said couldn’t be automated.
+  I’ve delivered solutions for research labs, startups, and academic teams slashing manual workloads by up to 90% and hitting over 95% accuracy on problems most people said couldn’t be automated.
 
-  To me, science and magic have always been the same thing: the thrill of making something new exist. That same curiosity led me to co-found and build an entire e-commerce platform from scratch—proof that I don’t just study systems, I build them, end to end.
+  To me, science and magic have always been the same thing: the thrill of making something new exist. That same curiosity led me to co-found and build an entire e-commerce platform from scratch proof that I don’t just study systems, I build them, end to end.
 
   These days, I bring that builder’s mindset to AI research across healthcare, education, storytelling, and social impact.
 
-  I’m driven by a simple belief: the future isn’t something we wait for—it’s something we create. And I’m here to make sure the AI we build serves humanity’s best ideas while inspiring the next generation of creators.
+  I’m driven by a simple belief: the future isn’t something we wait for; it’s something we create. And I’m here to make sure the AI we build serves humanity’s best ideas while inspiring the next generation of creators.
 
   `;
 
