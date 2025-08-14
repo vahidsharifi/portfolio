@@ -31,22 +31,22 @@ import React from "react";
 
 const ResearcherProfile = () => {
   const bio = `
-  👋 About Me
+  👋 **About Me**
 
-  I am an AI researcher and data scientist specialising in large language models, multimodal AI, and applied NLP.
-  
-  My work spans from designing state-of-the-art RAG systems to fine-tuning models via RLHF for improved reasoning, safety, and factuality.
-  
-  I have delivered AI systems for research labs, startups, and academic projects that reduced manual workloads by up to 90% and achieved >95% accuracy in complex real-world settings.
-  
-  Since I was a kid, science and magic felt one and the same—every discovery seemed enchanted. I've always believed that creation is the truest form of magic.
-   
-  Driven by a need to understand things from first principles, I once co-founded and built an entire e-commerce business from the ground up. Now, I bring that same hands-on curiosity to the world of AI research and development.
-  
-  I thrive on solving real-world challenges across healthcare, education, creative storytelling, and social impact. Whether I'm exploring philosophical "whys" or crafting new ideas from abstract concepts, I'm passionate about both learning and sharing that journey with others.
-  
-  To me, a bright future isn't luck—it's something we build together. I'm committed to ensuring AI development serves humanity's highest aspirations while empowering the next generation of creators.
+  I’m an AI researcher and data scientist obsessed with turning ideas once thought *impossible* into working systems.
+
+  From cutting-edge RAG pipelines to RLHF-tuned models that reason, fact-check, and create safely, I build AI that actually works in the messy, unpredictable real world.
+
+  I’ve delivered solutions for research labs, startups, and academic teams—slashing manual workloads by up to 90% and hitting over 95% accuracy on problems most people said couldn’t be automated.
+
+  To me, science and magic have always been the same thing: the thrill of making something new exist. That same curiosity led me to co-found and build an entire e-commerce platform from scratch—proof that I don’t just study systems, I build them, end to end.
+
+  These days, I bring that builder’s mindset to AI research across healthcare, education, storytelling, and social impact.
+
+  I’m driven by a simple belief: the future isn’t something we wait for—it’s something we create. And I’m here to make sure the AI we build serves humanity’s best ideas while inspiring the next generation of creators.
+
   `;
+
 
   const skillCategories = [
     {
