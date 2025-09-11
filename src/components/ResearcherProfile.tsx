@@ -117,7 +117,7 @@ const ResearcherProfile = () => {
         "Markmap",
         "GitLab CI",
       ],
-      link: "https://mindmap-456916.uc.r.appspot.com/",
+      link: "https://mindmap-app-977175146736.us-central1.run.app/",
       github: "https://github.com/vahidsharifi/mindmap",
     },
     {
