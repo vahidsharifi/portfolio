@@ -228,6 +228,27 @@ const ResearcherProfile = () => {
   ];
 
   const experiences = [
+
+    {
+      role: "Quality Assurance Specialist (GenAI Data Curation)",
+      company: "Mercor",
+      period: "2025 - present",
+      location: "United States - Remote",
+      description: [
+        "Ensured data integrity by reviewing 1,000+ instances weekly, with 300+ gold-quality prompt–answer pairs delivered at a 92% approval rate.",
+        "Actively identified and reported technical issues in data pipelines, contributing research-driven solutions that improved reliability.",
+        "Collaborated with a 50-member team, sharing quality insights and feedback that enhanced overall consistency and efficiency.",
+        "Supported fine-tuning and benchmarking of LLMs by curating gold-standard datasets aligned with Generative AI evaluation needs."
+      ],
+      skills: [
+        "Quality Assurance",
+        "Data Curation",
+        "prompt Engineering",
+        "Benchmarking",
+        "Process Optimisation",
+        "Generative AI"
+      ]
+    },
     {
       role: "Researcher & AI Consultant",
       company: "University of Gloucestershire",
